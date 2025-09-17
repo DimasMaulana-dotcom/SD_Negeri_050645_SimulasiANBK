@@ -1,0 +1,198 @@
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Logo Sekolah */
+.logo-sekolah {
+  width: 100px;
+  display: block;
+  margin: 0 auto 15px auto;
+  transition: transform 0.3s ease;
+}
+
+.logo-sekolah:hover {
+  transform: scale(1.1);
+}
+
+/* Reset sederhana */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Layout dasar */
+body {
+  font-family: 'Tinos', serif;
+  line-height: 1.6;
+  background: url('img/Background.jpg') no-repeat center center fixed; 
+  background-size: cover;   /* supaya gambar memenuhi layar */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  color: #333;
+}
+
+/* Header */
+header {
+  text-align: center;
+  margin-bottom: 30px;
+  animation: fadeInUp 1s ease-in-out;
+}
+header h1 {
+  font-size: 2.5rem;
+  color: #b11010;
+}
+header h2 {
+  font-size: 1.5rem;
+  color: #cfec4a;
+  margin-top: 10px;
+}
+
+/* Deskripsi */
+#deskripsi {
+  max-width: 700px;
+  background: #c4afafcc;
+  padding: 20px 25px;
+  border-radius: 16px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  margin-bottom: 25px;
+  text-align: center;
+  animation: slideInRight 1.3s ease-out;
+}
+
+/* Tata Cara Simulasi */
+#tata-cara {
+  max-width: 700px;
+  background: #c4afafcc;
+  padding: 20px 25px;
+  border-radius: 16px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  margin-bottom: 25px;
+  animation: slideInLeft 1.3s ease-out;
+}
+
+#tata-cara h3 {
+  text-align: center;
+  color: #cfec4a;
+  margin-bottom: 15px;
+}
+
+#tata-cara ol {
+  padding-left: 20px;
+  color: #333;
+}
+
+#tata-cara li {
+  margin-bottom: 10px;
+}
+/* Tombol Mulai */
+#mulai button {
+  background: #ffb703;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 14px 30px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  animation: fadeInUp 1.6s ease-in-out;
+}
+/* Section Mulai */
+#mulai {
+  margin-top: 20px; /* geser sedikit ke bawah */
+}
+
+#mulai button:hover {
+  background: #ff9e00;
+  transform: scale(1.05);
+  transform: scale(1.08);
+}
+
+/* Footer selalu di bawah */
+footer {
+  margin-top: auto; /* kunci ke bawah */
+  text-align: center;
+  font-size: 0.9rem;
+  color: #555;
+  padding: 15px 0;
+  animation: fadeInUp 1.8s ease-in-out;
+}
+
+#timer {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #d62828;
+      background: #ffffffcc;
+      padding: 10px 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      margin: 20px auto;
+      text-align: center;
+      display: none; /* hanya muncul setelah simulasi dimulai */
+    }
+
+     #password-section {
+      margin: 20px auto;
+      text-align: center;
+    }
+    #password-section input {
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    #password-section button {
+      padding: 8px 16px;
+      margin-left: 10px;
+      border: none;
+      border-radius: 6px;
+      background: #2a6fdb;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    #password-section button:hover {
+      background: #1d4ed8;
+    }
+    #mulai button:disabled {
+      background: gray;
+      cursor: not-allowed;
+    }

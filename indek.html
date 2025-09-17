@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulasi Ujian ANBK - SD NEGERI 050645 TURANGIE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tinos&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="sytle.css">
+</head>
+<body>
+  <!-- Header Sekolah -->
+  <header>
+    <img src="img/logo.png" alt="Logo Tut Wuri Handayani" class="logo-sekolah">
+    <h1>SD NEGERI 050645 TURANGIE</h1>
+    <h2>LATIHAN SIMULASI ANBK</h2>
+  </header>
+
+  <!-- Penjelasan Simulasi -->
+  <section id="deskripsi">
+    <p>
+     ANBK adalah singkatan dari Asesmen Nasional Berbasis Komputer, sebuah program
+      evaluasi yang diselenggarakan oleh Kementerian Pendidikan, Kebudayaan, Riset, dan
+      Teknologi (Kemendikbudristek) untuk mengukur mutu pendidikan di sekolah,
+      madrasah, dan program kesetaraan tingkat dasar dan menengah.
+    </p>
+  </section>
+
+<!-- Tata Cara Simulasi -->
+<section id="tata-cara">
+  <h3>Tata Cara Simulasi</h3>
+  <ol>
+    <li>Pastikan perangkat laptop dalam kondisi baik dan terhubung internet.</li>
+    <li>Siapkan kertas dan alat tulis untuk coretan jika diperlukan.</li>
+    <li>Baca soal dengan teliti sebelum menjawab.</li>
+    <li>Kerjakan soal dengan tertib.</li>
+    <li>Klik tombol <b>Mulai Simulasi</b> untuk masuk ke Google Form.</li>
+  </ol>
+
+</section>
+
+  
+   <!-- Countdown Timer -->
+  <div id="timer">Sisa waktu: <span id="countdown">--:--</span></div>
+
+  <!-- Tombol Mulai -->
+  <section id="mulai">
+    <button type="button" onclick="mulaiSimulasi()">Mulai Simulasi</button>
+  </section>
+
+  <script>
+    let tabForm; 
+    let countdownInterval;
+
+    function mulaiSimulasi() {
+      let konfirmasi = confirm("Apakah kamu sudah siap memulai simulasi ujian?");
+      if (konfirmasi) {
+        // buka google form di tab baru
+        tabForm = window.open("https://forms.gle/G9BvLqmahRUdLiTn7", "_blank");
+
+        // tampilkan timer
+        document.getElementById("timer").style.display = "block";
+
+        // atur durasi ujian (misalnya 1 menit = 600 detik)
+        let durasi = 900; 
+        updateCountdown(durasi);
+
+        countdownInterval = setInterval(() => {
+          durasi--;
+          updateCountdown(durasi);
+
+          if (durasi <= 0) {
+            clearInterval(countdownInterval);
+            if (tabForm && !tabForm.closed) {
+              tabForm.close();
+            }
+            alert("⏰ Waktu ujian sudah habis! Tab Google Form ditutup otomatis.");
+          }
+        }, 1000);
+      }
+    }
+
+    function updateCountdown(detik) {
+      let menit = Math.floor(detik / 60);
+      let sisaDetik = detik % 60;
+      document.getElementById("countdown").textContent =
+        `${String(menit).padStart(2, '0')}:${String(sisaDetik).padStart(2, '0')}`;
+    }
+  </script>
+
+  <!-- Footer -->
+  <footer>
+    <p><b>&copy; 2025 SD Negeri 050645 Turangie. Semua Hak Dilindungi.</b></p>
+  </footer>
+</body>
+</html>
